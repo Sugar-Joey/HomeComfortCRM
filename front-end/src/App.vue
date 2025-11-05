@@ -2,9 +2,9 @@
   <div class="common-layout">
     <el-container style="height: 100vh">
       <!-- 左侧导航栏 -->
-      <!-- <el-aside width="200px" class="aside"> -->
-      <Sidebar />
-      <!-- </el-aside> -->
+      <el-aside width="200px" class="aside">
+        <Sidebar />
+      </el-aside>
 
       <!-- 右侧 -->
       <el-container>
@@ -19,7 +19,8 @@
 
         <!-- 右下main区域 -->
         <el-main class="main">
-          <div>You did it!</div>
+          <!-- 这里放路由出口，路由切换的组件会渲染到这里 -->
+          <router-view />
         </el-main>
       </el-container>
     </el-container>
@@ -36,17 +37,24 @@ const Sidebar = defineAsyncComponent(() => import('./components/Sidebar.vue'))
 // 这里将来可以引入 Sidebar、Navbar 组件或控制逻辑
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+body {
+  // font-family: 'HCSans', 'Microsoft YaHei', sans-serif;
+  font-family: 'HCSans';
+}
+
+// .aside {
+//   background-color: #d3dce6;
+//   text-align: center;
+//   line-height: 200px;
+//   font-weight: bold;
+// }
 .aside {
-  background-color: #d3dce6;
-  text-align: center;
-  line-height: 200px;
-  font-weight: bold;
+  margin: 0;
+  padding: 0;
 }
 
 .header {
-  background-color: #409eff;
-  color: white;
   text-align: center;
   line-height: 60px;
   font-size: 20px;
@@ -60,13 +68,11 @@ const Sidebar = defineAsyncComponent(() => import('./components/Sidebar.vue'))
 
   ::v-deep(svg) {
     width: 20px !important;
-    // height: 20px !important;
     vertical-align: middle;
   }
 }
 
 .main {
-  background-color: #e9eef3;
   padding: 20px;
   text-align: center;
 }

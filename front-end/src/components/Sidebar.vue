@@ -1,9 +1,23 @@
 <template>
-  <el-row class="tac">
-    <el-col :span="24">
-      <h5 class="mb-2">Default colors</h5>
-      <!-- 菜单项 -->
-      <el-menu
+  <div>
+    <!-- class="mb-2" -->
+    <h5>Default colors</h5>
+    <el-menu class="el-menu" router>
+      <el-menu-item index="/home">
+        <el-icon><location /></el-icon>
+        <span>HOME</span>
+      </el-menu-item>
+    </el-menu>
+    <el-menu class="el-menu" router>
+      <el-menu-item index="/test">
+        <el-icon><location /></el-icon>
+        <span>TEST</span>
+      </el-menu-item>
+    </el-menu>
+  </div>
+
+  <!-- 菜单项 -->
+  <!-- <el-menu
         default-active="2"
         class="el-menu-vertical-demo"
         @open="handleOpen"
@@ -40,20 +54,18 @@
           <el-icon><setting /></el-icon>
           <span>Navigator Four</span>
         </el-menu-item>
-      </el-menu>
-    </el-col>
-  </el-row>
+      </el-menu> -->
 </template>
 
 <script lang="ts" setup>
 import { Document, Menu as IconMenu, Location, Setting } from '@element-plus/icons-vue'
 
-const handleOpen = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
-}
-const handleClose = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
-}
+// const handleOpen = (key: string, keyPath: string[]) => {
+//   console.log(key, keyPath)
+// }
+// const handleClose = (key: string, keyPath: string[]) => {
+//   console.log(key, keyPath)
+// }
 </script>
 
 <script lang="ts">
@@ -65,30 +77,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-/* .aside {
-  background-color: #d3dce6;
-  text-align: center;
-  line-height: 200px;
-  font-weight: bold;
-}
-
-.header {
-  background-color: #409eff;
-  color: white;
-  text-align: center;
-  line-height: 60px;
-  font-size: 20px;
-}
-
-.main {
-  background-color: #e9eef3;
-  padding: 20px;
-  text-align: center;
-} */
-
-.el-menu-item,
-.nav {
-  font-size: 20px;
-}
-</style>
+<style scoped></style>

@@ -1,0 +1,36 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #141414;
+  color: #cfd3dc;
+}
+
+/* menu hover */
+/* rgb(64, 158, 255) */
+
+/* 默认状态：文字和图标白色，背景暗色 */
+.el-menu-item,
+.el-menu-item i,
+.el-menu-item .el-menu-item-content {
+  background-color: #141414 !important; /* 背景 */
+  color: #cfd3dc !important; /* 默认文字和图标白色 */
+}
+
+/* hover 状态：文字和图标变蓝，背景不变 */
+.el-menu-item:hover,
+.el-menu-item:hover i,
+.el-menu-item:hover .el-menu-item-content {
+  color: rgb(64, 158, 255) !important;
+  background-color: #141414 !important;
+}
+
+/* 选中状态：文字和图标变蓝 */
+.el-menu-item.is-active,
+.el-menu-item.is-active i,
+.el-menu-item.is-active .el-menu-item-content {
+  color: rgb(64, 158, 255) !important;
+  background-color: #141414 !important;
+}
