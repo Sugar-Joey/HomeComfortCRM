@@ -1,5 +1,9 @@
 html,
 body {
+  font-family: 'HCSans', 'Microsoft YaHei', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -8,29 +12,25 @@ body {
   color: #cfd3dc;
 }
 
-/* menu hover */
-/* rgb(64, 158, 255) */
-
-/* 默认状态：文字和图标白色，背景暗色 */
+/* 统一的背景颜色过渡 */
 .el-menu-item,
-.el-menu-item i,
-.el-menu-item .el-menu-item-content {
-  background-color: #141414 !important; /* 背景 */
-  color: #cfd3dc !important; /* 默认文字和图标白色 */
+.el-menu-item .el-menu-item-content,
+.el-menu-item i {
+  font-size: 16px;
+  background-color: #141414 !important; /* 默认背景色 */
+  color: #cfd3dc !important; /* 默认文字和图标颜色 */
+  transition: background-color 0.3s ease; /* 添加平滑的背景颜色过渡 */
 }
 
-/* hover 状态：文字和图标变蓝，背景不变 */
+/* hover 状态 */
 .el-menu-item:hover,
 .el-menu-item:hover i,
 .el-menu-item:hover .el-menu-item-content {
-  color: rgb(64, 158, 255) !important;
-  background-color: #141414 !important;
+  background-color: #303030 !important; /* hover 背景色 */
 }
 
-/* 选中状态：文字和图标变蓝 */
-.el-menu-item.is-active,
-.el-menu-item.is-active i,
-.el-menu-item.is-active .el-menu-item-content {
-  color: rgb(64, 158, 255) !important;
-  background-color: #141414 !important;
+/* 通过 transition 保证图标背景的同步 */
+.el-menu-item:hover svg {
+  background-color: #303030 !important; /* 确保图标的背景色也能同步 */
+  transition: background-color 0.3s ease; /* 使图标的背景颜色也有平滑的过渡 */
 }

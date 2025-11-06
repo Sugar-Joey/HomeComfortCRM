@@ -10,9 +10,23 @@
       <el-container>
         <!-- 右上header -->
         <el-header class="header">
+          <div class="header-left">
+            <el-button type="text" class="back-btn" @click="goBack">
+              <component
+                :is="'v-icon'"
+                small
+                class="white-color"
+                color="white"
+                style="margin: -2px 5px 0px 0"
+                >home</component
+              >
+              <!-- 使用 Vuetify 的自定义图标（通过 v-icon 映射） -->
+            </el-button>
+          </div>
+
           <el-page-header :icon="ArrowLeft">
             <template #content>
-              <span class="text-large font-600 mr-3"> Title </span>
+              <span class="title"> Title </span>
             </template>
           </el-page-header>
         </el-header>
@@ -21,6 +35,7 @@
         <el-main class="main">
           <!-- 这里放路由出口，路由切换的组件会渲染到这里 -->
           <router-view />
+          <div>You did it!</div>
         </el-main>
       </el-container>
     </el-container>
@@ -30,25 +45,18 @@
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue'
 import { ArrowLeft } from '@element-plus/icons-vue'
+import { useRouter } from 'vue-router'
 
 // 使用延迟组件导入来避免静态类型检查对 SFC 默认导出的限制
 const Sidebar = defineAsyncComponent(() => import('./components/Sidebar.vue'))
-
-// 这里将来可以引入 Sidebar、Navbar 组件或控制逻辑
+const router = useRouter()
+const goBack = () => {
+  // 使用 router.back() 回退，若不可回退可考虑 router.push('/')
+  router.back()
+}
 </script>
 
 <style lang="scss">
-body {
-  // font-family: 'HCSans', 'Microsoft YaHei', sans-serif;
-  font-family: 'HCSans';
-}
-
-// .aside {
-//   background-color: #d3dce6;
-//   text-align: center;
-//   line-height: 200px;
-//   font-weight: bold;
-// }
 .aside {
   margin: 0;
   padding: 0;
@@ -60,16 +68,12 @@ body {
   font-size: 20px;
 }
 
-.el-page-header {
-  ::v-deep(.el-page-header__title) {
-    font-size: 20px !important;
-    font-weight: 600;
-  }
-
-  ::v-deep(svg) {
-    width: 20px !important;
-    vertical-align: middle;
-  }
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'HCSans';
+  font-style: normal;
+  color: #cfd3dc;
 }
 
 .main {

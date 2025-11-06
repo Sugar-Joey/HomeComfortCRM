@@ -12,6 +12,11 @@
     }
   ],
   "compilerOptions": {
-    "module": "NodeNext"
+    "types": ["vite/client", "vue"],
+    "verbatimModuleSyntax": true,
+    "baseUrl": "./src", // 设置 src 作为根目录
+    "paths": {
+      "@/*": ["src/*"] // 将 @ 映射到 src 目录
+    }
   }
 }
