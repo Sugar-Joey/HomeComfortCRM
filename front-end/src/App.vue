@@ -1,83 +1,51 @@
 <template>
-  <div class="common-layout">
-    <el-container style="height: 100vh">
-      <!-- 左侧导航栏 -->
-      <el-aside width="200px" class="aside">
-        <Sidebar />
-      </el-aside>
-
-      <!-- 右侧 -->
-      <el-container>
-        <!-- 右上header -->
-        <el-header class="header">
-          <div class="header-left">
-            <el-button type="text" class="back-btn" @click="goBack">
-              <component
-                :is="'v-icon'"
-                small
-                class="white-color"
-                color="white"
-                style="margin: -2px 5px 0px 0"
-                >home</component
-              >
-              <!-- 使用 Vuetify 的自定义图标（通过 v-icon 映射） -->
-            </el-button>
-          </div>
-
-          <el-page-header :icon="ArrowLeft">
-            <template #content>
-              <span class="title"> Title </span>
-            </template>
-          </el-page-header>
-        </el-header>
-
-        <!-- 右下main区域 -->
-        <el-main class="main">
-          <!-- 这里放路由出口，路由切换的组件会渲染到这里 -->
-          <router-view />
-          <div>You did it!</div>
-        </el-main>
-      </el-container>
-    </el-container>
+  <div>
+    <PageLayout />
   </div>
 </template>
 
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue'
-import { ArrowLeft } from '@element-plus/icons-vue'
-import { useRouter } from 'vue-router'
+import { ref, reactive } from 'vue'
 
-// 使用延迟组件导入来避免静态类型检查对 SFC 默认导出的限制
-const Sidebar = defineAsyncComponent(() => import('./components/Sidebar.vue'))
-const router = useRouter()
-const goBack = () => {
-  // 使用 router.back() 回退，若不可回退可考虑 router.push('/')
-  router.back()
-}
+// 使用延迟导入以避免静态类型检查对 SFC 默认导出的影响
+const PageLayout = defineAsyncComponent(() => import('./components/PageLayout.vue'))
+// 类型定义（推荐定义接口）
+// interface LinkItem {
+//   icon: string
+//   text: string
+//   name?: string
+//   link?: string
+//   params?: Record<string, any>
+//   sub?: LinkItem[]
+// }
+// 状态定义
+// const userData = reactive<Record<string, any>>({})
+
+// links 为主菜单项
+// const links = reactive<LinkItem[]>([
+//   { icon: 'mdi-home', text: '首页', name: 'Home' },
+//   {
+//     icon: '$store',
+//     text: '零售门店管理',
+//     sub: [
+//       { icon: '$store', text: '门店主数据', name: 'StoresList' },
+//       { icon: '$sales', text: '门店促销员管理', name: 'AssistantsList' },
+//       { icon: '$target', text: '门店销售目标制定', name: 'SalesTargetList' },
+//     ],
+//   },
+//   {
+//     icon: 'mdi-account-cog',
+//     text: '系统管理',
+//     sub: [
+//       { icon: '', text: '用户管理', name: 'UserAuthonty' },
+//       { icon: '', text: '角色管理', name: 'RoleManagement' },
+//       { icon: '', text: '模块管理', name: 'StoreManageMent' },
+//       { icon: '', text: '销售人员更改管理', name: 'SalesChange' },
+//       { icon: '', text: '访问列表', name: 'LoginRecord' },
+//     ],
+//   },
+// ])
 </script>
 
-<style lang="scss">
-.aside {
-  margin: 0;
-  padding: 0;
-}
-
-.header {
-  text-align: center;
-  line-height: 60px;
-  font-size: 20px;
-}
-
-.title {
-  font-size: 20px;
-  font-weight: 700;
-  font-family: 'HCSans';
-  font-style: normal;
-  color: #cfd3dc;
-}
-
-.main {
-  padding: 20px;
-  text-align: center;
-}
-</style>
+<style lang="scss"></style>

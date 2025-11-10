@@ -22,18 +22,26 @@ export default defineConfigWithVueTs(
 
   pluginVue.configs['flat/essential'],
   vueTsConfigs.recommended,
-  
+
   {
     ...pluginVitest.configs.recommended,
     files: ['src/**/__tests__/*'],
   },
-  
+
   {
     ...pluginCypress.configs.recommended,
-    files: [
-      'cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}',
-      'cypress/support/**/*.{js,ts,jsx,tsx}'
-    ],
+    files: ['cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}', 'cypress/support/**/*.{js,ts,jsx,tsx}'],
   },
+  {
+    rules: {
+      // 放宽 TypeScript 的限制
+      '@typescript-eslint/no-explicit-any': 'off', // 允许 any
+      '@typescript-eslint/no-empty-object-type': 'off', // 允许 {}
+      '@typescript-eslint/ban-ts-comment': 'off', // 允许使用 @ts-ignore
+      '@typescript-eslint/no-unused-vars': 'off', // 允许未使用变量
+      'vue/multi-word-component-names': 'off', // 允许单词组件名
+    },
+  },
+
   skipFormatting,
 )

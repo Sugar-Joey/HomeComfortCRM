@@ -1,36 +1,86 @@
 html,
 body {
   font-family: 'HCSans', 'Microsoft YaHei', sans-serif;
-  font-weight: 700;
+  font-weight: 400;
   font-style: normal;
   font-size: 20px;
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
-  background-color: #141414;
-  color: #cfd3dc;
+  background: #212121;
+  color: #fff;
 }
 
-/* 统一的背景颜色过渡 */
+.el-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  background-color: #141414 !important;
+  border: none;
+  padding: 6px 8px;
+  gap: 8px;
+}
+
+.el-sub-menu {
+  gap: 8px;
+}
+
+.el-sub-menu .el-menu {
+  background-color: transparent !important; /* 不额外覆盖背景 */
+  border: none;
+  gap: 8px;
+  padding: 6px 0px;
+}
+
 .el-menu-item,
-.el-menu-item .el-menu-item-content,
-.el-menu-item i {
+.el-sub-menu__title,
+.el-sub-menu .el-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
   font-size: 16px;
-  background-color: #141414 !important; /* 默认背景色 */
-  color: #cfd3dc !important; /* 默认文字和图标颜色 */
-  transition: background-color 0.3s ease; /* 添加平滑的背景颜色过渡 */
+  background-color: #141414 !important;
+  color: #fff !important;
+  border-radius: 10px;
+  height: 40px;
+  transition: background-color 0.3s ease;
+  border: none !important;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* hover 状态 */
 .el-menu-item:hover,
-.el-menu-item:hover i,
-.el-menu-item:hover .el-menu-item-content {
-  background-color: #303030 !important; /* hover 背景色 */
+.el-sub-menu__title:hover {
+  background-color: #303030 !important;
+  color: #fff !important;
 }
 
-/* 通过 transition 保证图标背景的同步 */
-.el-menu-item:hover svg {
-  background-color: #303030 !important; /* 确保图标的背景色也能同步 */
-  transition: background-color 0.3s ease; /* 使图标的背景颜色也有平滑的过渡 */
+.el-menu-item:hover svg,
+.el-sub-menu__title:hover svg {
+  background-color: #303030 !important;
+  transition: background-color 0.3s ease;
+}
+
+.el-sub-menu .el-sub-menu__icon-arrow {
+  width: auto !important;
+  /* position: absolute; */
+  /* right: 10px; */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #fff !important;
+  transition: transform 0.3s ease;
+}
+
+.el-sub-menu__icon-arrow {
+  color: #fff;
+  transition: transform 0.3s ease;
+  width: 20px;
+}
+
+.el-sub-menu.is-opened > .el-sub-menu__title .el-sub-menu__icon-arrow {
+  transform: rotate(180deg);
 }
