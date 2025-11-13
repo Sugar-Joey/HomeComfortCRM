@@ -74,7 +74,7 @@ const goBack = () => {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .fixed-menu {
   display: flex;
   align-items: center;

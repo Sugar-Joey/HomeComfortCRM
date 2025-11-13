@@ -1,59 +1,28 @@
+/* 英文字体 HCSans */
 @font-face {
   font-family: 'HCSans';
   src: url('./HCSans-Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
 }
-
-@font-face {
-  font-family: 'HCSans';
-  src: url('./HCSans-LightItalic.ttf') format('truetype');
-  font-weight: 300;
-  font-style: italic;
-}
-
 @font-face {
   font-family: 'HCSans';
   src: url('./HCSans-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
-
-@font-face {
-  font-family: 'HCSans';
-  src: url('./HCSans-Italic.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
-}
-
 @font-face {
   font-family: 'HCSans';
   src: url('./HCSans-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
 }
-
-@font-face {
-  font-family: 'HCSans';
-  src: url('./HCSans-MediumItalic.ttf') format('truetype');
-  font-weight: 500;
-  font-style: italic;
-}
-
 @font-face {
   font-family: 'HCSans';
   src: url('./HCSans-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
 }
-
-@font-face {
-  font-family: 'HCSans';
-  src: url('./HCSans-BoldItalic.ttf') format('truetype');
-  font-weight: 700;
-  font-style: italic;
-}
-
 @font-face {
   font-family: 'HCSans';
   src: url('./HCSans-Black.ttf') format('truetype');
@@ -61,9 +30,40 @@
   font-style: normal;
 }
 
+/* 中文字体 PingFang */
 @font-face {
-  font-family: 'HCSans';
-  src: url('./HCSans-BlackItalic.ttf') format('truetype');
-  font-weight: 900;
-  font-style: italic;
+  font-family: 'PingFang';
+  src: url('./PingFang/PingFang-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PingFang';
+  src: url('./PingFang/PingFang-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PingFang';
+  src: url('./PingFang/PingFang-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PingFang';
+  src: url('./PingFang/PingFang-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PingFang';
+  src: url('./PingFang/PingFang-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PingFang';
+  src: url('./PingFang/PingFang-Heavy.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
 }
