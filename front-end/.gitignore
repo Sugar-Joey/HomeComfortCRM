@@ -26,6 +26,8 @@ coverage
 *.docx
 .history/
 .lh/
+# Fonts
+src/assets/fonts/PingFang/
 
 
 *.tsbuildinfo

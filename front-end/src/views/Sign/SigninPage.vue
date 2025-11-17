@@ -79,7 +79,7 @@
         <div class="or-text">or</div>
 
         <!-- 按钮 Sign in with Google -->
-        <button class="btn-google">Sign in with Google</button>
+        <button class="btn-google" @click="googleLogin">Sign in with Google</button>
       </div>
     </div>
   </div>
@@ -88,6 +88,9 @@
 <script lang="ts" setup>
 const goHome = () => {
   console.log('Go Home')
+}
+const googleLogin = () => {
+  window.location.href = 'http://localhost:8080/oauth2/authorization/google'
 }
 </script>
 
